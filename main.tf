@@ -14,12 +14,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "jenkins_server" {
+resource "aws_instance" "AppDeployment" {
   ami             = "ami-09d3b3274b6c5d4aa"
   instance_type   = "t2.micro"
   key_name        = "testpem"
   security_groups = ["launch-wizard-1"]
-  user_data       = file("jenkins.sh")
+  user_data       = file("Deployments.sh")
 
 
   tags = {
